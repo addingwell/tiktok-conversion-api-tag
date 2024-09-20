@@ -447,7 +447,7 @@ const ga4TiktokEventMapping = {
   'view_item': 'ViewContent',
   'add_to_wishlist': 'AddToWishlist',
   'add_to_cart': 'AddToCart',
-  'add_payment_indo': 'AddPaymentInfo',
+  'add_payment_info': 'AddPaymentInfo',
   'sign_up': 'CompleteRegistration',
   'contact': 'Contact',
   'click': 'ClickButton',
