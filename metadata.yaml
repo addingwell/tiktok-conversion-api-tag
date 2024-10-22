@@ -1,6 +1,6 @@
 homepage: "https://addingwell.com"
 versions:
-  - sha: fe60cc30b7e6aea65c2f719e2f7b10928c8e413d
-    changeNotes: Initial release.
   - sha: 118ea4a6d4506cc7f4e7e3e52ecef9420c0a0f55
     changeNotes: Update readme
+  - sha: fe60cc30b7e6aea65c2f719e2f7b10928c8e413d
+    changeNotes: Initial release.
