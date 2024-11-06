@@ -420,6 +420,8 @@ var body = {};
 const clickId = getClickId();
 const browserId = getBrowserId();
 
+log(data);
+
 if (clickId) {
   setCookie('ttclid', clickId, {
     domain: 'auto',
@@ -470,10 +472,10 @@ function getTikTokEventName() {
 body = {
   event_source: "web",
   event_source_id: data.pixelId,
-  event_id: eventData.event_id,
   test_event_code: data.testId,
   data: [{
     event: getTikTokEventName(),
+    event_id: eventData.event_id,  
     event_time: Math.round(getTimestampMillis() / 1000),
     user: getUserParameters(),
     page: getPageParameters(),
@@ -484,7 +486,11 @@ body = {
 
 if (data.serverEventDataList) {
   data.serverEventDataList.forEach(d => {
-    body[d.name] = d.value;
+    if(d.name == "event_id") {
+      body.data[0].event_id = d.value;
+    } else {
+      body[d.name] = d.value;
+    }
   });
 }
 
@@ -625,7 +631,7 @@ function getContentsParameters() {
       contents.push({
         price: item.price,
         quantity: item.quantity,
-        content_id: item[eventData.item_list_id || getItemField('item_id')],
+        content_id: str(item[eventData.item_list_id || getItemField('item_id')]),
         content_category: item[getItemField('item_category')],
         content_name: item.item_name,
         brand: item.item_brand
