@@ -1,6 +1,8 @@
 homepage: "https://addingwell.com"
 documentation: "https://docs.addingwell.com/tiktok-events-api/tag-setup"
 versions:
+  - sha: c9262d82c0ff6d6b1eaa23521906a02c14db3513
+    changeNotes: Update template name
   - sha: 835c01923c1b7be934dfce45d0a7cb3e55b36b94
     changeNotes: Fix event_id issue
   - sha: 118ea4a6d4506cc7f4e7e3e52ecef9420c0a0f55
