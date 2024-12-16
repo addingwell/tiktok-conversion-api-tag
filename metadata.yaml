@@ -1,7 +1,7 @@
 homepage: "https://addingwell.com"
 documentation: "https://docs.addingwell.com/tiktok-events-api/tag-setup"
 versions:
-  - sha: b18785c95b2327fddc6da50bc95b6ddceb26200b
+  - sha: 6ffad9c90ccb8f9cdbf1675a6d87b74970ec7080
     changeNotes: Prevent tag exceptions from missing country information
   - sha: c9262d82c0ff6d6b1eaa23521906a02c14db3513
     changeNotes: Update template name
