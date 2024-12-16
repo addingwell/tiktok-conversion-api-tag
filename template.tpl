@@ -521,6 +521,11 @@ function getUserParameters() {
     user_data = eventData.user_data;
   }
 
+  let country;
+  if(getType(eventData.event_location) === 'object' && eventData.event_location.country !== undefined) {
+    country = eventData.event_location.country.toLowerCase();
+  }
+
   let user = {
     ttclid: clickId,
     ttp: browserId,
@@ -529,7 +534,7 @@ function getUserParameters() {
     external_id: eventData.user_id || eventData.client_id,
     ip: eventData.ip_override || getRemoteAddress(),
     user_agent: eventData.user_agent,
-    locale: eventData.event_location.country.toLowerCase()
+    locale: country
   };
   
   
