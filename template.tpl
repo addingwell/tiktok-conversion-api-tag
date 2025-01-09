@@ -63,6 +63,74 @@ ___TEMPLATE_PARAMETERS___
                   {
                     "value": "Pageview",
                     "displayValue": "Pageview"
+                  },
+                  {
+                    "value": "ViewContent",
+                    "displayValue": "ViewContent"
+                  },
+                  {
+                    "value": "AddToWishlist",
+                    "displayValue": "AddToWishlist"
+                  },
+                  {
+                    "value": "AddToCart",
+                    "displayValue": "AddToCart"
+                  },
+                  {
+                    "value": "InitiateCheckout",
+                    "displayValue": "InitiateCheckout"
+                  },
+                  {
+                    "value": "AddPaymentInfo",
+                    "displayValue": "AddPaymentInfo"
+                  },
+                  {
+                    "value": "CompletePayment",
+                    "displayValue": "CompletePayment"
+                  },
+                  {
+                    "value": "CompleteRegistration",
+                    "displayValue": "CompleteRegistration"
+                  },
+                  {
+                    "value": "Contact",
+                    "displayValue": "Contact"
+                  },
+                  {
+                    "value": "ClickButton",
+                    "displayValue": "ClickButton"
+                  },
+                  {
+                    "value": "SubmitForm",
+                    "displayValue": "SubmitForm"
+                  },
+                  {
+                    "value": "Search",
+                    "displayValue": "Search"
+                  },
+                  {
+                    "value": "Subscribe",
+                    "displayValue": "Subscribe"
+                  },
+                  {
+                    "value": "Download",
+                    "displayValue": "Download"
+                  },
+                  {
+                    "value": "CustomizeProduct",
+                    "displayValue": "CustomizeProduct"
+                  },
+                  {
+                    "value": "FindLocation",
+                    "displayValue": "FindLocation"
+                  },
+                  {
+                    "value": "PlaceAnOrder",
+                    "displayValue": "PlaceAnOrder"
+                  },
+                  {
+                    "value": "Schedule",
+                    "displayValue": "Schedule"
                   }
                 ],
                 "simpleValueType": true
