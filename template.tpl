@@ -671,7 +671,7 @@ function getPropertiesParameters() {
   };
   
    if (data.propertyDataList) {
-    data.pageDataList.forEach(d => {
+    data.propertyDataList.forEach(d => {
       properties_parameters[d.name] = d.value;
     });
   }
