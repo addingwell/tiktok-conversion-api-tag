@@ -521,7 +521,7 @@ const ga4TiktokEventMapping = {
   'sign_up': 'CompleteRegistration',
   'contact': 'Contact',
   'click': 'ClickButton',
-  'generate_lead': 'SubmitForm',
+  'generate_lead': 'Lead',
   'begin_checkout': 'InitiateCheckout',
   'search': 'Search',
   'subscribe': 'Subscribe',
