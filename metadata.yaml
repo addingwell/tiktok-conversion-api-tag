@@ -1,6 +1,8 @@
 homepage: "https://addingwell.com"
 documentation: "https://docs.addingwell.com/tiktok-events-api/tag-setup"
 versions:
+  - sha: f27e3c21dee97077db6e9fe42c230e19a6462a4c
+    changeNotes: Add gtm_version
   - sha: 424464f5beefae1e96f2fbd6defa868acc3fd474
     changeNotes: Fix mapping for generate_lead event
   - sha: 9f006a7acbfe0e40058be8f8502cf302b5ed8931
