@@ -30,6 +30,11 @@ ___TEMPLATE_PARAMETERS___
 
 [
   {
+    "type": "LABEL",
+    "name": "documentation",
+    "displayName": "This tag translates standard GA4 event data into TikTok event formats and sends it to the TikTok Events API.\nFor detailed setup instructions, please refer to the \u003ca href\u003d\"https://docs.addingwell.com/en/tiktok-events-api/tag-setup\"\u003eAddingwell documentation\u003c/a\u003e.\u003cbr\u003e\u003cbr\u003e"
+  },
+  {
     "type": "SELECT",
     "name": "inheritEventName",
     "displayName": "Event Name Setup Method",
@@ -85,10 +90,6 @@ ___TEMPLATE_PARAMETERS___
                     "displayValue": "AddPaymentInfo"
                   },
                   {
-                    "value": "CompletePayment",
-                    "displayValue": "CompletePayment"
-                  },
-                  {
                     "value": "CompleteRegistration",
                     "displayValue": "CompleteRegistration"
                   },
@@ -97,12 +98,8 @@ ___TEMPLATE_PARAMETERS___
                     "displayValue": "Contact"
                   },
                   {
-                    "value": "ClickButton",
-                    "displayValue": "ClickButton"
-                  },
-                  {
-                    "value": "SubmitForm",
-                    "displayValue": "SubmitForm"
+                    "value": "Lead",
+                    "displayValue": "Lead"
                   },
                   {
                     "value": "Search",
@@ -125,17 +122,30 @@ ___TEMPLATE_PARAMETERS___
                     "displayValue": "FindLocation"
                   },
                   {
-                    "value": "PlaceAnOrder",
-                    "displayValue": "PlaceAnOrder"
-                  },
-                  {
                     "value": "Schedule",
                     "displayValue": "Schedule"
+                  },
+                  {
+                    "value": "Purchase",
+                    "displayValue": "Purchase"
+                  },
+                  {
+                    "value": "ApplicationApproval",
+                    "displayValue": "ApplicationApproval"
+                  },
+                  {
+                    "value": "StartTrial",
+                    "displayValue": "StartTrial"
+                  },
+                  {
+                    "value": "SubmitApplication",
+                    "displayValue": "SubmitApplication"
                   }
                 ],
                 "simpleValueType": true
               }
-            ]
+            ],
+            "help": "Standard event name. Check the list of \u003ca href\"https://business-api.tiktok.com/portal/docs?id\u003d1771101186666498\"\u003eTiktok Events API supported events\u003c/a\u003e"
           },
           {
             "value": "custom",
@@ -144,9 +154,11 @@ ___TEMPLATE_PARAMETERS___
               {
                 "type": "TEXT",
                 "name": "eventNameCustom",
-                "simpleValueType": true
+                "simpleValueType": true,
+                "valueHint": "quote_signed"
               }
-            ]
+            ],
+            "help": "Custom event name you want to send to Tiktok. You can also use a Lookup Table here to set up your own mapping between GA4 event names and events you want to send to Tiktok."
           }
         ],
         "simpleValueType": true,
@@ -158,26 +170,42 @@ ___TEMPLATE_PARAMETERS___
           }
         ]
       }
-    ]
+    ],
+    "help": "2 options:\n\u003cul\u003e\u003cli\u003e\u003cb\u003eInherit from client\u003c/b\u003e: automatic mapping between GA4 event names and Tiktok standard events. When a GA4 event name can\u0027t be mapped to a Tiktok standard event it is sent as a custom event.\u003c/li\u003e\n\u003cli\u003e\u003cb\u003eOverride\u003c/b\u003e: manually set which event you want to send to Tiktok whatever the GA4 event name is.\u003c/li\u003e\n\u003c/ul\u003e\n\u003ca href\u003d\"https://docs.addingwell.com/en/tiktok-events-api/tag-setup\"\u003eLearn more\u003c/a\u003e"
   },
   {
     "type": "TEXT",
     "name": "accessToken",
     "displayName": "Access Token",
-    "simpleValueType": true
+    "simpleValueType": true,
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ],
+    "valueHint": "f6a48bc6d98ef8bac7c369a4cd5ac76bd7f5f373",
+    "help": "Tiktok Events API access token is available in Tiktok Events Manager. \u003ca href\u003d\"https://docs.addingwell.com/en/tiktok-events-api/tag-setup\"\u003eLearn more\u003c/a\u003e"
   },
   {
     "type": "TEXT",
     "name": "pixelId",
     "displayName": "Pixel ID",
-    "simpleValueType": true
+    "simpleValueType": true,
+    "valueValidators": [
+      {
+        "type": "NON_EMPTY"
+      }
+    ],
+    "valueHint": "C57GNEDNQ154K298EG9GQ",
+    "help": "Tiktok Pixel ID is available in Tiktok Events Manager. \u003ca href\u003d\"https://docs.addingwell.com/en/tiktok-events-api/tag-setup\"\u003eLearn more\u003c/a\u003e"
   },
   {
     "type": "TEXT",
     "name": "testId",
     "displayName": "Test Event Code",
     "simpleValueType": true,
-    "valueHint": "TEST12345"
+    "valueHint": "TEST12345",
+    "help": "Enter the test event code prompted in Tiktok Events Manager to see requests sent from this tag to the Tiktok Events API."
   },
   {
     "type": "CHECKBOX",
@@ -225,7 +253,9 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "newRowButtonText": "Add Property"
+        "newRowButtonText": "Add Property",
+        "help": "List of server event parameters and explanations:\n\u003cul\u003e\n\t\u003cli\u003e\u003cb\u003eEvent Source\u003c/b\u003e: This field is used to specify the type of events you are uploading through Events API.\n\t\t\u003cul\u003e\n\t\t\t\u003cli\u003e\u003cb\u003eweb\u003c/b\u003e: From a website.\u003c/li\u003e\n\t\t\t\u003cli\u003e\u003cb\u003eapp\u003c/b\u003e: From a mobile app.\u003c/li\u003e\n\t\t\t\u003cli\u003e\u003cb\u003eoffline\u003c/b\u003e: From a physical store.\u003c/li\u003e\n\t\t\t\u003cli\u003e\u003cb\u003ecrm\u003c/b\u003e: From a CRM system.\u003c/li\u003e\n\t\t\u003c/ul\u003e\n\t\t(default: \u0027web\u0027)\n\t\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eEvent ID\u003c/b\u003e: Tiktok uses Event ID to deduplicate the same event sent multiple times from a single channel or across multiple channels (for instance browser pixel and Events API). \u003ca href\u003d\"https://business-api.tiktok.com/portal/docs?id\u003d1771100965992450\"\u003eLearn more\u003c/a\u003e (default: eventData.event_id)\u003c/li\u003e\n\u003c/ul\u003e",
+        "displayName": "Server event data"
       }
     ]
   },
@@ -262,8 +292,8 @@ ___TEMPLATE_PARAMETERS___
                 "displayValue": "Value"
               },
               {
-                "value": "query",
-                "displayValue": "Query"
+                "value": "search_string",
+                "displayValue": "Search string"
               },
               {
                 "value": "description",
@@ -276,6 +306,10 @@ ___TEMPLATE_PARAMETERS___
               {
                 "value": "shop_id",
                 "displayValue": "Shop ID"
+              },
+              {
+                "value": "num_items",
+                "displayValue": "Number of items"
               }
             ],
             "isUnique": true
@@ -292,7 +326,9 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "newRowButtonText": "Add Property"
+        "newRowButtonText": "Add Property",
+        "help": "List of properties:\n\u003cul\u003e\n\t\u003cli\u003e\u003cb\u003eContents\u003c/b\u003e: Relevant products in an event with product information. \u003ca href\u003d\"https://business-api.tiktok.com/gateway/docs/index?doc_id\u003d1771101151059969#item-link-contents%20parameters\"\u003eSee contents parameters\u003c/a\u003e (default: eventData.items)\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eContent Type\u003c/b\u003e: The type of content in the event. When the content_id in the contents parameter is specified as sku_id, set this field to product. When the content_id in the contents parameter is specified as item_group_id, set this field to product_group. (default: if eventData.item_list_id then \u0027product_group\u0027 else \u0027product\u0027)\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eCurrency\u003c/b\u003e: The ISO 4217 currency code. (default: eventData.currency)\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eValue\u003c/b\u003e: Value of the order or items sold. The value should always be formatted as an integer or decimal (for instance, 10.00) regardless of the location, currency, or other factors. (default: eventData.value)\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eSearch string\u003c/b\u003e: The user-entered string for search. (default: eventData.search_term)\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eDescription\u003c/b\u003e: Description of the item or page.\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eOrder ID\u003c/b\u003e: Order ID. (default: eventData.transaction_id)\u003c/li\u003e\n\t\u003cli\u003e\u003cb\u003eShop ID\u003c/b\u003e: Shop ID.\u003c/li\u003e\n\u003c/ul\u003e",
+        "displayName": "Properties data"
       }
     ]
   },
@@ -359,7 +395,9 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "newRowButtonText": "Add Property"
+        "newRowButtonText": "Add Property",
+        "displayName": "User data",
+        "help": "List of user data: \u003cul\u003e \t\u003cli\u003e\u003cb\u003eEmail\u003c/b\u003e: The email address of the customer. (If you send it hashed the tag will forward it, if you send it plain the tag will hash it before sending it to Tiktok Events API) (default: eventData.user_data.email_address or eventData.user_data.email) - \u003ca href\u003d\"https://business-api.tiktok.com/portal/docs?id\u003d1771100865818625\"\u003eLearn more\u003c/a\u003e\u003c/li\u003e \t\u003cli\u003e\u003cb\u003ePhone\u003c/b\u003e: The phone number of the customer. (If you send it hashed the tag will forward it, if you send it plain the tag will hash it before sending it to Tiktok Events API) (default: eventData.user_data.phone_number) - \u003ca href\u003d\"https://business-api.tiktok.com/portal/docs?id\u003d1771100865818625\"\u003eLearn more\u003c/a\u003e\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eExternal ID\u003c/b\u003e: External ID, a unique identifier on the advertiser\u0027s side, such as loyalty membership IDs, user IDs, and external cookie IDs. (default: eventData.user_id)\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eIP address\u003c/b\u003e: Non-hashed public IP address of the user\u0027s device. (default: eventData.ip_override or headers.x-forwarded-for or headers.forwarded)\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eUser Agent\u003c/b\u003e: Non-hashed user agent from the user’s device. (default: eventData.user_agent)\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eClick ID\u003c/b\u003e: TikTok Click ID, a data connection parameter appended to a landing page URL whenever a user clicks on an ad on TikTok.\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eBrowser ID\u003c/b\u003e: The value of _ttp is used to match website visitor events with TikTok ads. (default: cookies._ttp or eventData.ttp or eventData._ttp) - If not found, the browser id cookie is generated by the tag.\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eLocale\u003c/b\u003e: The BCP 47 language identifier. (default: eventData.event_location.country)\u003c/li\u003e \u003c/ul\u003e"
       }
     ]
   },
@@ -375,22 +413,22 @@ ___TEMPLATE_PARAMETERS___
         "displayName": "Update default item field",
         "simpleTableColumns": [
           {
-            "defaultValue": "id",
+            "defaultValue": "item_id",
             "displayName": "Property Name",
             "name": "name",
             "type": "SELECT",
             "selectItems": [
               {
-                "value": "id",
-                "displayValue": "id"
+                "value": "item_id",
+                "displayValue": "item_id"
               },
               {
                 "value": "quantity",
                 "displayValue": "quantity"
               },
               {
-                "value": "item_price",
-                "displayValue": "item_price"
+                "value": "price",
+                "displayValue": "price"
               },
               {
                 "value": "item_category",
@@ -410,7 +448,8 @@ ___TEMPLATE_PARAMETERS___
               }
             ]
           }
-        ]
+        ],
+        "help": "Override the field name this tag will look for in the GA4 \u003cb\u003eeventData.items\u003c/b\u003e array. (e.g. if Property Name \u003d \u003ci\u003eitem_id\u003c/i\u003e and Property Field \u003d \u003ci\u003eitem_variant_id\u003c/i\u003e the tag will use \u003ci\u003eitem_variant_id\u003c/i\u003e as item ID to fill \u003cb\u003econtents\u003c/b\u003e and \u003cb\u003econtent_ids\u003c/b\u003e arrays)"
       }
     ]
   },
@@ -432,11 +471,11 @@ ___TEMPLATE_PARAMETERS___
             "selectItems": [
               {
                 "value": "url",
-                "displayValue": "url"
+                "displayValue": "URL"
               },
               {
                 "value": "referrer",
-                "displayValue": "referrer"
+                "displayValue": "Referrer"
               }
             ],
             "isUnique": true,
@@ -454,7 +493,9 @@ ___TEMPLATE_PARAMETERS___
             ]
           }
         ],
-        "newRowButtonText": "Add Property"
+        "newRowButtonText": "Add Property",
+        "help": "List of page data: \u003cul\u003e \t\u003cli\u003e\u003cb\u003eURL\u003c/b\u003e: The browser URL where the event happened. (default: eventData.page_location)\u003c/li\u003e \t\u003cli\u003e\u003cb\u003eReferrer\u003c/b\u003e: The referrer URL. (default: eventData.page_referrer)\u003c/li\u003e \u003c/ul\u003e",
+        "displayName": "Page data"
       }
     ]
   }
@@ -472,7 +513,7 @@ const sendPixelFromBrowser = require('sendPixelFromBrowser');
 const eventData = require('getAllEventData')();
 const getRemoteAddress = require('getRemoteAddress');
 const encodeUriComponent = require('encodeUriComponent');
-const sha256 = (text) => require('sha256Sync')(text, { outputEncoding: 'hex' });
+const sha256Sync = require('sha256Sync');
 const str = require('makeString');
 const int = require('makeNumber');
 const createRegex = require('createRegex');
@@ -485,7 +526,7 @@ const getType = require('getType');
 const api_version = 'v1.3';
 const gtmVersion = 'addingwell_1_0_0';
 const events_api_url = 'https://business-api.tiktok.com/open_api/' + api_version + '/event/track/';
-var body = {};
+let body = {};
 const clickId = getClickId();
 const browserId = getBrowserId();
 
@@ -519,13 +560,13 @@ const ga4TiktokEventMapping = {
   'add_payment_info': 'AddPaymentInfo',
   'sign_up': 'CompleteRegistration',
   'contact': 'Contact',
-  'click': 'ClickButton',
   'generate_lead': 'Lead',
   'begin_checkout': 'InitiateCheckout',
   'search': 'Search',
+  'view_search_results': 'Search',
   'subscribe': 'Subscribe',
   'file_download': 'Download',
-  'purchase': 'CompletePayment'
+  'purchase': 'Purchase'
 };
 
 function getTikTokEventName() {
@@ -607,26 +648,26 @@ function getUserParameters() {
   
   if(user_data) {
     if(user_data.email_address) {
-      user.email = sha256(user_data.email_address.trim().toLowerCase());
+      user.email = hashData(user_data.email_address);
     } else if(user_data.email) {
-      user.email = sha256(user_data.email.trim().toLowerCase());
+      user.email = hashData(user_data.email);
     } else if(user_data.sha256_email_address) {
-      user.email = user_data.sha256_email_address;
+      user.email = hashData(user_data.sha256_email_address);
     }
     
     if(user_data.phone_number) { 
-      user.phone = sha256(str(user_data.phone_number).replace(createRegex('[+ ]+', 'g'), ''));
+      user.phone = hashData(user_data.phone_number);
     } else if(user_data.sha256_phone_number) {
-      user.phone = user_data.sha256_phone_number;
+      user.phone = hashData(user_data.sha256_phone_number);
     }
   }
   
-    if (data.userDataList) {
+  if (data.userDataList) {
     data.userDataList.forEach(d => {
       if(d.name == "phone") {
-        user[d.name] = sha256(d.value.replace(createRegex('[+ ]+', 'g'), ''));
+        user[d.name] = hashData(d.value.replace(createRegex('[+ ]+', 'g'), ''));
       } else {
-        user[d.name] = sha256(d.value.trim().toLowerCase());        
+        user[d.name] = hashData(d.value);        
       }
     });
   }
@@ -663,10 +704,11 @@ function getPropertiesParameters() {
     content_type: getContentType(),
     currency: eventData.currency,
     value: eventData.value,
-    query: eventData.search_term || eventData.coupon,
+    search_string: eventData.search_term || eventData.coupon,
     description: eventData.description,
     order_id: eventData.transaction_id ? str(eventData.transaction_id) : undefined,
     shop_id: eventData.shop_id,
+    num_items: eventData.items ? eventData.items.length : undefined,
     gtm_version: gtmVersion
   };
   
@@ -719,8 +761,8 @@ function getItemField(defaultField) {
   let result = defaultField;
 
   const map = {
-    item_id: 'id',
-    price: 'item_price',
+    item_id: 'item_id',
+    price: 'price',
     quantity: 'quantity',
     item_category: 'item_category'
   };
@@ -754,6 +796,19 @@ function generateTtpCookie() {
   }
 
   return result;
+}
+
+
+function isAlreadyHashed(input){
+  return input && (input.toString().match('^[A-Fa-f0-9]{64}$') != null);
+}
+
+function hashData(input){
+  if(input == null || isAlreadyHashed(input)){
+    return input;
+  }
+
+  return sha256Sync(input.toString().trim().toLowerCase(), {outputEncoding: 'hex'});
 }
 
 
