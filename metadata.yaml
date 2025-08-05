@@ -1,6 +1,8 @@
 homepage: "https://addingwell.com"
 documentation: "https://docs.addingwell.com/tiktok-events-api/tag-setup"
 versions:
+  - sha: 6b3bf6a4566504ddad40cfc181a6742269b809e1
+    changeNotes: Add documentation + fixes
   - sha: f27e3c21dee97077db6e9fe42c230e19a6462a4c
     changeNotes: Add gtm_version
   - sha: 424464f5beefae1e96f2fbd6defa868acc3fd474
