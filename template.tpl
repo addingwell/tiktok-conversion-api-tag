@@ -625,7 +625,7 @@ function getUserParameters() {
     data.userDataList.forEach(d => {
       if(d.name == "phone") {
         user[d.name] = sha256(d.value.replace(createRegex('[+ ]+', 'g'), ''));
-      } else {
+      } else if(d.name && d.value) {
         user[d.name] = sha256(d.value.trim().toLowerCase());        
       }
     });
