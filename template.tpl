@@ -483,12 +483,11 @@ const parseUrl = require('parseUrl');
 const getType = require('getType');
 
 const api_version = 'v1.3';
+const gtmVersion = 'addingwell_1_0_0';
 const events_api_url = 'https://business-api.tiktok.com/open_api/' + api_version + '/event/track/';
 var body = {};
 const clickId = getClickId();
 const browserId = getBrowserId();
-
-log(data);
 
 if (clickId) {
   setCookie('ttclid', clickId, {
@@ -667,7 +666,8 @@ function getPropertiesParameters() {
     query: eventData.search_term || eventData.coupon,
     description: eventData.description,
     order_id: eventData.transaction_id ? str(eventData.transaction_id) : undefined,
-    shop_id: eventData.shop_id
+    shop_id: eventData.shop_id,
+    gtm_version: gtmVersion
   };
   
    if (data.propertyDataList) {
